@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="cocos2d-android">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/libs/cocos2d-android.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
