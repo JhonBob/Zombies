@@ -9,56 +9,49 @@ import org.cocos2d.actions.base.CCAction;
 import org.cocos2d.actions.instant.CCCallFunc;
 import org.cocos2d.actions.instant.CCHide;
 import org.cocos2d.actions.instant.CCShow;
-import org.cocos2d.actions.interval.CCAnimate;
 import org.cocos2d.actions.interval.CCDelayTime;
 import org.cocos2d.actions.interval.CCSequence;
-import org.cocos2d.layers.CCLayer;
-import org.cocos2d.layers.CCScene;
-import org.cocos2d.layers.CCTMXObjectGroup;
-import org.cocos2d.nodes.CCAnimation;
-import org.cocos2d.nodes.CCDirector;
 import org.cocos2d.nodes.CCSprite;
-import org.cocos2d.nodes.CCSpriteFrame;
-import org.cocos2d.transitions.CCFlipAngularTransition;
-import org.cocos2d.transitions.CCJumpZoomTransition;
-import org.cocos2d.transitions.CCPageTurnTransition;
 import org.cocos2d.types.CGPoint;
 import org.cocos2d.types.CGRect;
-import org.cocos2d.types.CGSize;
-
-import java.util.ArrayList;
 
 /**
  * Created by Administrator on 2016/1/25.
  */
+
+
+//游戏欢迎界面
 public class WelcomeLayer extends BaseLayer {
 
-    private CCSprite logo;
-    private  CCSprite start;
+    public CCSprite logo;
+    public   CCSprite start;
 
     public WelcomeLayer() {
-        asyncTask();
+        asysTask();
         init();
     }
 
-    private void asyncTask() {
-        new AsyncTask<Void,Void,Void>(){
+    private void asysTask() {
+        new AsyncTask<Void, Void, Void>(){
+            // 在子线程中执行的代码
             @Override
             protected Void doInBackground(Void... params) {
-                try{
+                // 模拟耗时的操作
+                try {
                     Thread.sleep(8000);
-                }catch (Exception e){
+                } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
                 return null;
             }
-
+            //在子线程之后执行的代码
             @Override
-            protected void onPostExecute(Void aVoid) {
-                super.onPostExecute(aVoid);
+            protected void onPostExecute(Void result) {
+                super.onPostExecute(result);
                 start.setVisible(true);
-                setIsTouchEnabled(true);
+                setIsTouchEnabled(true);//  触摸事件能早关就早关 能晚开就晚开
             }
+
         }.execute();
     }
 
@@ -102,9 +95,9 @@ public class WelcomeLayer extends BaseLayer {
         CCAction animate=CommonUtils.animate("image/loading/loading_%02d.png",9, false);
         loading.runAction(animate);
 
-        start=CCSprite.sprite("image/loading/loading_start.png");
-        start.setPosition(phoneSize.width / 2, 30);
+        start = CCSprite.sprite("image/loading/loading_start.png");
+        start.setPosition(phoneSize.width/2, 30);
         this.addChild(start);
-        start.setVisible(false);
+        start.setVisible(false);//不可见   当后台数据加载完成的时候可见
     }
 }

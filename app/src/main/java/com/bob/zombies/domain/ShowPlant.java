@@ -7,6 +7,8 @@ import java.util.HashMap;
 /**
  * Created by Administrator on 2016/1/25.
  */
+
+//容器展示植物
 public class ShowPlant {
 
     public static  HashMap<Integer,HashMap<String,String>> plants;
@@ -22,10 +24,12 @@ public class ShowPlant {
         }
     }
 
+    public int id;
     private CCSprite showSprite; //展示用的精灵
     private CCSprite bgSprite; //背景精灵
 
     public ShowPlant(int id){
+        this.id=id;
         HashMap<String, String> hashMap = plants.get(id);
         String path = hashMap.get("path");
         showSprite=CCSprite.sprite(path);

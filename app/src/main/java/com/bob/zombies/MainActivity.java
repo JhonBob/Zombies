@@ -9,7 +9,9 @@ import org.cocos2d.layers.CCScene;
 import org.cocos2d.nodes.CCDirector;
 import org.cocos2d.opengl.CCGLSurfaceView;
 
+//唯一的Activity
 public class MainActivity extends Activity {
+
     private CCGLSurfaceView ccglSurfaceView;
     private CCDirector ccDirector;
     private CCScene ccScene;
@@ -53,5 +55,7 @@ public class MainActivity extends Activity {
     protected void onDestroy() {
         super.onDestroy();
         ccDirector.end();
+        //处理返回按钮的BUG
+        android.os.Process.killProcess(android.os.Process.myPid());
     }
 }

@@ -2,7 +2,6 @@ package com.bob.zombies.Layer;
 
 import com.bob.zombies.utils.CommonUtils;
 
-import org.cocos2d.layers.CCLayer;
 import org.cocos2d.menus.CCMenu;
 import org.cocos2d.menus.CCMenuItem;
 import org.cocos2d.menus.CCMenuItemSprite;
@@ -11,6 +10,9 @@ import org.cocos2d.nodes.CCSprite;
 /**
  * Created by Administrator on 2016/1/25.
  */
+
+
+//菜单视图
 public class MenuLayer extends BaseLayer{
 
     public MenuLayer() {

@@ -10,6 +10,9 @@ import java.util.concurrent.Callable;
 /**
  * Created by Administrator on 2016/1/25.
  */
+
+
+//游戏开始前路上的僵尸
 public class ShowZombies extends CCSprite {
 
     public ShowZombies() {

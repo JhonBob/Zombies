@@ -7,6 +7,8 @@ import org.cocos2d.types.CGSize;
 /**
  * Created by Administrator on 2016/1/25.
  */
+
+//视图基类
 public class BaseLayer extends CCLayer {
     public CGSize phoneSize;
 
